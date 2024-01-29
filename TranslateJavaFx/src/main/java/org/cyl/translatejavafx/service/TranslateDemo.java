@@ -15,8 +15,26 @@ import java.util.Map;
  */
 public class TranslateDemo {
 
-    private static final String APP_KEY = "";     // 您的应用ID
-    private static final String APP_SECRET = "";  // 您的应用密钥
+    private static  String APP_KEY = "";     // 您的应用ID
+    private static  String APP_SECRET = "";  // 您的应用密钥
+    private static String from="";
+    private static String to="";
+
+    public static void setAppKey(String appKey) {
+        APP_KEY = appKey;
+    }
+
+    public static void setAppSecret(String appSecret) {
+        APP_SECRET = appSecret;
+    }
+
+    public static void setFrom(String from) {
+        TranslateDemo.from = from;
+    }
+
+    public static void setTo(String to) {
+        TranslateDemo.to = to;
+    }
 
     public static String doTranslate(String text) throws NoSuchAlgorithmException {
         // 添加请求参数
@@ -52,14 +70,14 @@ public class TranslateDemo {
          * 取值参考文档: https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/API%E6%96%87%E6%A1%A3/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-API%E6%96%87%E6%A1%A3.html
          */
         String q = text;
-        String from = "中文";
-        String to = "英文";
+        String f = from;
+        String t = to;
         String vocabId = "您的用户词表ID";
 
         return new HashMap<String, String[]>() {{
             put("q", new String[]{q});
-            put("from", new String[]{from});
-            put("to", new String[]{to});
+            put("from", new String[]{f});
+            put("to", new String[]{t});
             put("vocabId", new String[]{vocabId});
         }};
     }

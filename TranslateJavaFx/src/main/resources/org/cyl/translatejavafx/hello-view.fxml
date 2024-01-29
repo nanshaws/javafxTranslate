@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -9,13 +7,41 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 
-<VBox alignment="CENTER" prefHeight="200.0" prefWidth="638.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="org.cyl.translatejavafx.HelloController">
-   <children>
-       <Label text="翻译应用" />
-       <HBox spacing="10.0">
-           <TextArea fx:id="inputTextArea" promptText="输入文本" prefWidth="300.0" prefHeight="150.0" />
-           <TextArea fx:id="outputTextArea" promptText="翻译结果" prefWidth="300.0" prefHeight="150.0" editable="false" />
-       </HBox>
-       <Button text="翻译" onAction="#translate" />
-   </children>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<VBox alignment="CENTER" prefHeight="200.0" prefWidth="638.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.cyl.translatejavafx.HelloController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="Settings" onAction="#openSettings" />
+                    </items>
+                    <items>
+                        <MenuItem text="Exit" onAction="#exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+<!--        <Label text="翻译应用" />-->
+        <HBox spacing="60.0">
+            <children>
+                <Label text="from" />
+                <Label text="to" />
+            </children>
+        </HBox>
+        <HBox spacing="10.0">
+            <children>
+                <ListView fx:id="sourceLanguageList" prefHeight="150.0" prefWidth="150.0" />
+                <ListView fx:id="targetLanguageList" prefHeight="150.0" prefWidth="150.0" />
+                <TextArea fx:id="inputTextArea" prefHeight="150.0" prefWidth="300.0" promptText="输入文本" />
+                <TextArea fx:id="outputTextArea" editable="false" prefHeight="150.0" prefWidth="300.0" promptText="翻译结果" />
+            </children>
+        </HBox>
+        <Button onAction="#translate" text="翻译" />
+    </children>
 </VBox>
